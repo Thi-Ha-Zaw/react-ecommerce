@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../api/api";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +8,12 @@ import Fade from "react-reveal/Fade";
 import { GetCarts } from "../services/cart/cartSlice";
 
 const ProductDetail = () => {
+
     const { id } = useParams();
+
+    const [Image, setImage] = useState(true)
+    const [Index,setIndex ] = useState(null)
+    
     const dispatch = useDispatch();
 
     const FetchSingleProduct = async () => {
@@ -17,7 +22,7 @@ const ProductDetail = () => {
     };
 
     const product = useSelector(state => state.products.product);
-    console.log(product);
+
 
     useEffect(() => {
         FetchSingleProduct();
@@ -28,6 +33,12 @@ const ProductDetail = () => {
         dispatch(setActiveButton({productId : product.id , active : true}))
     }
 
+    const hanldeShowImage = (index) => {
+        console.log(index);
+        setIndex(index)
+        setImage(false)
+    }
+
     return (
         <>
             {product ? (
@@ -36,7 +47,7 @@ const ProductDetail = () => {
                         <Fade left>
                             <div>
                                 <img
-                                    src={product?.thumbnail}
+                                    src={Image ? product?.thumbnail : product?.images[Index]}
                                     alt=""
                                     className=" rounded-md object-cover w-full h-[400px] max-w-full"
                                 />
@@ -45,8 +56,9 @@ const ProductDetail = () => {
                                         product?.images?.map((image, index) => (
                                             <div key={index} className="">
                                                 <img
+                                                    onClick={()=>hanldeShowImage(index)}
                                                     src={image}
-                                                    className=" w-[100px]  h-[100px] shadow-md rounded-md object-cover"
+                                                    className=" cursor-pointer w-[100px]  h-[100px] shadow-md rounded-md object-cover"
                                                 ></img>
                                             </div>
                                         ))
@@ -58,16 +70,16 @@ const ProductDetail = () => {
                         </Fade>
                         <Fade right>
                             <div className=" flex flex-col gap-7 pt-10">
-                                <p className=" uppercase font-bold">
+                                <p className=" uppercase font-bold dark:text-dark-title">
                                     {product?.brand}
                                 </p>
-                                <p className=" font-bold text-5xl">
+                                <p className=" font-bold dark:text-dark-title text-5xl">
                                     {product?.title}
                                 </p>
-                                <p className=" text-sm leading-7 tracking-wide text-gray-600">
+                                <p className=" text-sm leading-7 dark:text-dark-des tracking-wide text-gray-600">
                                     {product?.description}
                                 </p>
-                                <p className=" text-3xl font-bold">
+                                <p className=" text-3xl font-bold dark:text-dark-title">
                                     ${product?.price}
                                 </p>
                                 <div>
@@ -81,7 +93,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             ) : (
-                <h1>Loading....</h1>
+                <h1 className=" dark:text-white">Loading....</h1>
             )}
         </>
     );

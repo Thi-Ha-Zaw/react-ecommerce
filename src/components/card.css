@@ -8,8 +8,8 @@
 }
 
 .active{
-    background-color: #000;
-    color: rgb(239, 239, 239);
+    background-color: #000 !important;
+    color: rgb(239, 239, 239) !important;
 }
 
 .icon-active{

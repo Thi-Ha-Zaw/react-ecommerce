@@ -19,9 +19,9 @@ const Card = ({ product, products }) => {
 
     for (let i = 1; i <= 5; i++) {
         if (i <= Math.floor(product?.rating)) {
-            StarArr.push(<BsFillStarFill className=" text-gray-900" key={i} />);
+            StarArr.push(<BsFillStarFill className=" text-gray-900 dark:text-dark-star" key={i} />);
         } else {
-            StarArr.push(<BsStar key={i} />);
+            StarArr.push(<BsStar className=" dark:text-dark-star" key={i} />);
         }
     }
 
@@ -33,25 +33,25 @@ const Card = ({ product, products }) => {
     return (
         <>
             <Fade left>
-                <div className=" p-3 bg-white shadow rounded-lg border border-gray-200 flex flex-col gap-3 h-[400px] hover:shadow-2xl hover:scale-105 transition duration-500">
+                <div className=" p-3 bg-white dark:bg-dark-over dark:border-0 shadow rounded-lg border border-gray-200 flex flex-col gap-3 h-[400px] hover:shadow-2xl hover:scale-105 transition duration-500">
                     <div>
                         <img
                             src={product?.thumbnail}
                             alt=""
-                            className=" w-full max-w-full h-[200px] object-cover"
+                            className=" w-full max-w-full h-[200px] object-cover "
                         />
                     </div>
-                    <p className=" font-bold text-xl truncate">
+                    <p className=" font-bold text-xl truncate dark:text-dark-title">
                         {product?.title}
                     </p>
-                    <div className=" flex">{StarArr}</div>
+                    <div className=" flex ">{StarArr}</div>
                     <div className=" mb-2 flex justify-between items-center">
-                        <p className=" text-xl">${product?.price}</p>
+                        <p className=" text-xl dark:text-dark-title">${product?.price}</p>
                         <button
                             onClick={handleAddToCart}
                             className={`${
                                 isActive ? "active" : ""
-                            } cart-btn px-5 flex items-center gap-1 py-2 border shadow-sm  rounded-sm  hover:bg-gray-900  transition duration-300 hover:text-gray-300 uppercase`}
+                            } cart-btn px-5 flex items-center gap-1 py-2 border shadow-sm  rounded-sm  hover:bg-gray-900   transition duration-300 hover:text-gray-300 uppercase`}
                         >
                             <BsCartFill
                                 className={`${
@@ -62,7 +62,7 @@ const Card = ({ product, products }) => {
                         </button>
                     </div>
                     <Link to={`pdDetail/${product?.id}`}>
-                        <button className=" w-full bg-gray-800 px-4 text-gray-300 py-1 rounded-md">
+                        <button className=" w-full dark:bg-gray-900 bg-gray-800 px-4 text-gray-300 py-1 rounded-md ">
                             more info
                         </button>
                     </Link>

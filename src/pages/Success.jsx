@@ -7,10 +7,10 @@ const Success = () => {
 	const nav = useNavigate();
 
     return (
-        <div className=" w-full px-3 md:px-24 py-12">
+        <div className=" w-full h-screen px-3 md:px-24 py-12">
             <Fade top>
                 <div className=" flex justify-center items-center">
-                    <div className=" text-center shadow-md p-10 md:p-20 hover:scale-105 transition duration-500">
+                    <div className=" text-center dark:bg-white dark:rounded-md shadow-md p-10 md:p-20 hover:scale-105 transition duration-500">
                         <p className=" text-4xl font-bold mb-10 bg-gradient-to-r text-transparent bg-clip-text  from-gray-900 to-blue-900 hover:from-pink-500 hover:to-yellow-500">
                            Your Shopping Is Success !
                         </p>

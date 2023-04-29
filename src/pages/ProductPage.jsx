@@ -67,7 +67,7 @@ const ProductPage = () => {
                             onClick={handleAll}
                             className={`${
                                 Category === null ? "active" : ""
-                            } px-5 py-1 border shadow-sm rounded-sm hover:bg-black hover:text-white transition duration-300`}
+                            } px-5 py-1 border dark:text-slate-400 shadow-sm rounded-sm hover:bg-black hover:text-white transition duration-300`}
                         >
                             All
                         </button>
@@ -77,7 +77,7 @@ const ProductPage = () => {
                                 key={cat?.id}
                                 className={` ${
                                     cat?.category === Category ? "active" : ""
-                                } shadow-sm px-4 py-1 border rounded-sm hover:bg-black hover:text-white transition duration-300`}
+                                } shadow-sm dark:text-slate-400 px-4 py-1 border rounded-sm hover:bg-black hover:text-white transition duration-300`}
                             >
                                 {cat?.category}
                             </button>
