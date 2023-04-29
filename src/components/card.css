@@ -1,0 +1,17 @@
+
+.cart-icon{
+    color: black !important;
+}
+
+.cart-btn:hover .cart-icon{
+    color: #ffffff !important;
+}
+
+.active{
+    background-color: #000;
+    color: rgb(239, 239, 239);
+}
+
+.icon-active{
+    color: #ffffff !important;
+}
