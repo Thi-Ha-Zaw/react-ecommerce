@@ -26,7 +26,7 @@ const CartPage = () => {
     return (
         <>
             {carts?.length > 0 ? (
-                <div className=" w-full h-screen px-3 lg:px-24 py-12">
+                <div className=" w-full min-h-screen px-3 lg:px-24 py-12">
                     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

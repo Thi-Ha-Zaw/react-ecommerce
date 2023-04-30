@@ -42,7 +42,7 @@ const ProductDetail = () => {
     return (
         <>
             {product ? (
-                <div className=" w-full h-screen px-3 lg:px-24 py-12">
+                <div className=" w-full min-h-screen px-3 lg:px-24 py-12">
                     <div className=" grid grid-cols-1 md:grid-cols-2 md:gap-10 lg:gap-28 mb-10">
                         <Fade left>
                             <div>

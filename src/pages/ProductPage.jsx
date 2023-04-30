@@ -61,7 +61,7 @@ const ProductPage = () => {
     return (
         <>
             {products.length > 0 ? (
-                <div className=" w-full pb-24 px-3 lg:px-24">
+                <div className=" w-full min-h-screen pb-24 px-3 lg:px-24">
                     <div className=" flex gap-5 flex-wrap justify-center pb-8">
                         <button
                             onClick={handleAll}
